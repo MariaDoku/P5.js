@@ -1,0 +1,27 @@
+let img;
+let cnv;
+function preload(){
+  img = loadImage('ADR2\ADR_journal1.jpg');
+}
+//only run once
+function setup() {
+  cnv = createCanvas(img.width, img.height);
+  //print(img.width, img.height)
+  let newCanvasX = (windowWidth - img.width)/2;
+  cnv.position(newCanvasX, newCanvasY);
+  //access the pixel information of the image
+  for(let col = 0; col< img.width; col+=10){
+    for(let row = 0; row <img.height; row +=10){
+      let c = img.get(col,row);
+      stroke(color(c));
+      strokeWeight(10);
+      point(col, row);
+      rect(col, row, 10,5);
+    }
+  }
+  createCanvas(400, 400);
+}
+
+function draw() {
+  background(220);
+}
